@@ -1,14 +1,13 @@
 const db = require("../models");
 const productModel = require("../models/productModel");
 
-const join = await 
+var join = await 
 accounts.findAll({
-    include: {model: order,
-    as: 'username'}
+    include: {model: order, as: 'username'}
  });
 accounts.findAll({
     include: [{
-        model: productModel,
+        model: product,
         right: true
     }]
 });
