@@ -7,16 +7,18 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.urlencoded({extended: this.true}));
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res)=>{
-    res.json({message: "Welcome..."})
+app.get("/", (req, res) => {
+    const data = {
+        username: 'duy',
+        password: '12345'
+    }
+    res.send(data)
 })
 
-
-
 const PORT = process.env.PORT || 8081;
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}.`);
 });
 

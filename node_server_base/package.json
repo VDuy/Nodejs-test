@@ -1,18 +1,36 @@
 {
   "name": "node_server_base",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "module-alias": "^2.2.2",
+    "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "debug": "^4.3.2",
     "nodemon": "^2.0.12",
     "sequelize-auto-models": "^0.2.14"
+  },
+  "_moduleAliases": {
+    "@src": "./src",
+    "@controllers": "./src/controllers",
+    "@models": "./src/models",
+    "@utils": "./src/utils",
+    "@commons": "./src/commons",
+    "@config": "./src/config"
   }
 }
