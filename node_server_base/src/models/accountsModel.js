@@ -1,15 +1,15 @@
-const { Sequelize } = require("sequelize");
+"use strict";
+
+const Sequelize = require("sequelize");
 const Model = Sequelize.Model;
-
-const sequelize = require(__dirname + "/../config/env.js");
-
+var sequelize = require(__dirname + "/../config/env.js");
 class accounts extends Model { }
 accounts.init(
   {
     id: {
-      type: Sequelize.INTERGER,
+      type: Sequelize.INTEGER,
       allowNull: false,
-      primarykey: true,
+      primaryKey: true,
       autoIncrement: true,
     },
 
@@ -34,21 +34,22 @@ accounts.init(
       allowNull: true,
     },
     role: {
-      type: Sequelize.INTERGER,
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
     created_at: {
       type: Sequelize.DATE,
       allowNull: false,
-      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      //      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
     },
   },
   {
     sequelize,
     modelName: "user",
+    freezeTablename: true,
     timestamps: false,
   }
 );
-
+console.log(accounts === sequelize.models.accounts);
 module.exports = () => accounts;
 

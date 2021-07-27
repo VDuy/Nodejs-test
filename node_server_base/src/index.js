@@ -1,23 +1,34 @@
-const express = require('express');
-const path = require('path')
-const cors = require("cors");
-const bodyParser = require('body-parser');
-const db = require('./models');
-const app = express();
+var express = require('express');
+var path = require('path');
+// const cors = require("cors");
+// const bodyParser = require('body-parser');
+//var sequelize = require('./config/env');
+var db = require('./models');
+var app = express();
+
 
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+var indexRouter = require('./router');
+var accountsRouter = require('./router/accountsRouter');
+
+// app.use('/', indexRouter);
+app.use('/account', accountsRouter);
+
+
+app.get("/", (request, response) => {
+ //   console.log(request);
     const data = {
         username: 'duy',
         password: '12345'
     }
-    res.send(data)
+    response.send(data)
 })
 
-const PORT = process.env.PORT || 8081;
+
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}.`);
 });

@@ -1,0 +1,1 @@
+const {accounts} = require('./models');

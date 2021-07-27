@@ -1,7 +1,7 @@
 
 const path      = require('path');
 var Sequelize = require('sequelize');
-//var sequelize = require('@config/env.js')
+var sequelize = require('../config/env.js')
 const db        = {};
 
 
