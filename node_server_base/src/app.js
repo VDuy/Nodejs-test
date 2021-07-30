@@ -1,21 +1,24 @@
 var express = require('express');
 var path = require('path');
 // const cors = require("cors");
-// const bodyParser = require('body-parser');
-//var sequelize = require('./config/env');
+ const bodyParser = require('body-parser');
+
+ var sequelize = require('./config/env');
 var db = require('./models');
 var app = express();
 
 
+
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
-var indexRouter = require('./router');
-var accountsRouter = require('./router/accountsRouter');
+var indexRouter = require('./routes');
+var accountsRouter = require('./routes/accountsRouter');
+var categoryRouter = require('./routes/categoryRouter');
 
 // app.use('/', indexRouter);
-app.use('/account', accountsRouter);
+// app.use('/account', accountsRouter);
 
 
 app.get("/", (request, response) => {

@@ -45,11 +45,11 @@ accounts.init(
   },
   {
     sequelize,
-    modelName: "user",
+    modelName: "accounts",
     freezeTablename: true,
     timestamps: false,
   }
 );
-console.log(accounts === sequelize.models.accounts);
+ console.log(accounts === sequelize.models.accounts);
 module.exports = () => accounts;
 
