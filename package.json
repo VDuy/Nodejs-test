@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "debug": "^4.3.2",
-    "fs": "^0.0.1-security"
-  }
-}

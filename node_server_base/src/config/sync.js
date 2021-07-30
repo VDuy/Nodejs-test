@@ -1,4 +1,4 @@
-require("module-alias/register");
+
 var models = require("../models");
 
 models.sequelize

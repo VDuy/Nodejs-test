@@ -3,8 +3,8 @@ const { Sequelize } = require('sequelize');
 
 var env = {
     host: process.env.DB_HOST || '127.0.0.1',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '0983947663',
+    user: process.env.DB_USER || 'roots',
+    password: process.env.DB_PASSWORD || '0983947663A',
     database: process.env.DB_NAME || 'testwindsoft',
     
 }

@@ -1,5 +1,5 @@
-const {dotenv} = require('dotenv');
-//dotenv.config()
+const {dotenv} = require('dotenv').config();
+
 var sequelize = require('./config/env');
 var express = require('express');
 var path = require('path');
@@ -34,7 +34,7 @@ app.get("/", (request, response) => {
 })
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}.`);
 });
