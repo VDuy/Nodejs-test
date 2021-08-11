@@ -18,8 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 
 var indexRouter = require('./routes');
  var accountsRouter = require('./routes/accountsRouter');
- var categoryRouter = require('./routes/categoryRouter');
-
+ 
 // app.use('/', indexRouter);
 // app.use('/account', accountsRouter);
 
