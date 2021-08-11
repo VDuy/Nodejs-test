@@ -10,9 +10,18 @@ async function getAllAccount(req, res) {
         console.log(error);
     }
 }
+async function getAccountById(req, res) {
+    try {
+        var data = await accountService.getAccountById();
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 module.exports = {
     getAllAccount,
+    getAccountById,
 
 };

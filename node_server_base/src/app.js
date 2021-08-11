@@ -17,10 +17,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 var indexRouter = require('./routes');
- var accountsRouter = require('./routes/accountsRouter');
+var accountsRouter = require('./routes/accountsRouter');
  
-// app.use('/', indexRouter);
-// app.use('/account', accountsRouter);
+ //app.use('/', indexRouter);
+ //app.use('/account', accountsRouter);
 
 
 app.get("/", (request, response) => {
