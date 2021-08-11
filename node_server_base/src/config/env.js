@@ -2,10 +2,10 @@ const { Sequelize } = require('sequelize');
 
 
 var env = {
-    host: process.env.DB_HOST || '127.0.0.1',
-    user: process.env.DB_USER || 'roots',
-    password: process.env.DB_PASSWORD || '0983947663A',
-    database: process.env.DB_NAME || 'testwindsoft',
+    host: process.env.DB_HOST ,
+    user: process.env.DB_USER ,
+    password: process.env.DB_PASSWORD ,
+    database: process.env.DB_NAME,
     
 }
 
