@@ -2,10 +2,10 @@ var express = require('express');
 const Accounts = require('../models/accountsModel')
 const accountController = require('../controller/accountsController');
 const { response } = require('../common/response');
-var Route = express.Router();
+var router = express.Router();
 
 
-Route.get('/', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
         const accounts = await accountController.getAllAccount(req, res, next);
         res.json(response.success(accounts));
@@ -14,7 +14,7 @@ Route.get('/', async (req, res, next) => {
     }
 });
 
- Route.get('/:id',async (req, res, next) => {
+ router.get('/:id',async (req, res, next) => {
     try {
         const accounts = await accountController.getAccountById(req, res, next);
         res.json(response.success(accounts));
@@ -22,6 +22,8 @@ Route.get('/', async (req, res, next) => {
         res.json(response.error(error.code, error.msg));
     }
 });
-// Route.post('/', createAccount)
-// Route.put('/:id', updateAccount)
-// Route.delete('/:id', deleteAccount)
+// router.post('/', createAccount)
+// router.put('/:id', updateAccount)
+// router.delete('/:id', deleteAccount)
+
+module.exports = router;

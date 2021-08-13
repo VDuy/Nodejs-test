@@ -1,10 +1,10 @@
 const {dotenv} = require('dotenv').config();
 
-var sequelize = require('./config/env');
+//var sequelize = require('./config/env');
 var express = require('express');
 var path = require('path');
 // const cors = require("cors");
- const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
  
 var db = require('./models');
@@ -19,9 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 var indexRouter = require('./routes');
 var accountsRouter = require('./routes/accountsRouter');
  
- //app.use('/', indexRouter);
- //app.use('/account', accountsRouter);
-
+ app.use('/', indexRouter);
+ app.use('/account', accountsRouter);
 
 app.get("/", (request, response) => {
  //   console.log(request);
@@ -31,7 +30,6 @@ app.get("/", (request, response) => {
     }
     response.send(data)
 })
-
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {

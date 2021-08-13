@@ -1,5 +1,3 @@
-"use strict";
-
 const Sequelize = require("sequelize");
 const Model = Sequelize.Model;
 var sequelize = require(__dirname + "/../config/env.js");
