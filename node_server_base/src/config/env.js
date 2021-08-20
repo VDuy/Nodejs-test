@@ -1,5 +1,6 @@
 const { Sequelize } = require('sequelize');
 const { debug } = require('../utils/constant')
+// const CONSTANT = require("../utils/constant");
 
 const env = {
     host: process.env.DB_HOST,
@@ -13,7 +14,11 @@ const sequelize = new Sequelize(env.database, env.user, env.password, {
     port: env.port,
     dialect: 'mysql',
     logging: debug.db,
-    
+    loggingl: false,
+    query: { raw: false },
+    define: {
+        hooks: true
+    }
 });
 
 sequelize.sync();

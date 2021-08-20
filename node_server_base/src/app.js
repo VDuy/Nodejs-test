@@ -10,7 +10,7 @@ const cors = require("cors");
 var app = express();
 
 var indexRouter = require('./routes');
-var accountsRouter = require('./routes/accountsRouter');
+var accountsRouter = require('./routes/userRouter');
 
 const response = require('./common/response');
 
