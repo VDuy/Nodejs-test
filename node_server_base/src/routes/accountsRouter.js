@@ -1,11 +1,11 @@
 var express = require('express');
-const Accounts = require('../models/accountsModel')
+const account = require('../models/account')
 const accountController = require('../controller/accountsController');
-const { response } = require('../common/response');
+const  response  = require('../common/response');
 var router = express.Router();
 
 
-router.get('/', async (req, res, next) => {
+router.get('/list', async (req, res, next) => {
     try {
         const accounts = await accountController.getAllAccount(req, res, next);
         res.json(response.success(accounts));

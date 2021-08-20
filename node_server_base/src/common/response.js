@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-  error: function(error, message = null) {
+  error: function(error, message = "null") {
     return {
       status: 0,
       code: error.code,

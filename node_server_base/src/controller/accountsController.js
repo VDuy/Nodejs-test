@@ -1,5 +1,7 @@
-const { accounts } = require('../models');
+const {account} = require('../models');
 const accountService = require('../services/accountsService');
+const { apiCode } = require('../utils/constant');
+
 
 
 async function getAllAccount(req, res) {
@@ -15,7 +17,10 @@ async function getAccountById(req, res) {
         var data = await accountService.getAccountById();
         return data;
     } catch (error) {
-        console.log(error);
+        debug.log(error);
+        return Promise.reject({
+            code: error.code || apiCode.DB_ERROR,
+        });
     }
 }
 
