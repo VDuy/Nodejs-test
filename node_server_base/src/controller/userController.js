@@ -1,20 +1,23 @@
-const {Account} = require('../models');
+const { Account } = require('../models');
 const accountService = require('../services/userService');
 const { apiCode } = require('../utils/constant');
 
+async function homepage(req, res) {
+    return res.render('index.ejs')
 
+}
 
-async function getAllAccount(req, res) {
+async function getAllUser(req, res) {
     try {
-        var data = await accountService.getAllAccount();
+        var data = await accountService.getAllUser();
         return data;
     } catch (error) {
         console.log(error);
     }
 }
-async function getAccountById(req, res) {
+async function getUserbyId(req, res) {
     try {
-        var data = await accountService.getAccountById();
+        var data = await accountService.getUserbyId();
         return data;
     } catch (error) {
         debug.log(error);
@@ -23,9 +26,9 @@ async function getAccountById(req, res) {
         });
     }
 }
-async function createAccount(req, res){
+async function createUser(req, res) {
     try {
-        var data = await accountService.createAccount();
+        var data = await accountService.createUser();
         return data
     } catch (error) {
         debug.log(error);
@@ -33,9 +36,11 @@ async function createAccount(req, res){
     }
 }
 
+
 module.exports = {
-    getAllAccount,
-    getAccountById,
-    createAccount,
+    homepage: homepage,
+    getAllUser,
+    getUserbyId,
+    createUser,
 
 };

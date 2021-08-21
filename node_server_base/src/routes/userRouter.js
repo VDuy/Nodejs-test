@@ -1,14 +1,14 @@
-var express = require('express');
+const express = require('express');
 const Account = require('../models/user')
-const accountController = require('../controller/userController');
+const userController = require('../controller/userController');
 const response = require('../common/response');
-var router = express.Router();
+const router = express.Router();
 
 
 router.get('/list', async (req, res, next) => {
     try {
-        const accounts = await accountController.getAllAccount(req, res, next);
-        res.json(response.success(accounts));
+        const users = await userController.getAllUser(req, res, next);
+        res.json(response.success(users));
     } catch (error) {
         res.json(response.error(error.code, error.msg));
     }
@@ -16,21 +16,21 @@ router.get('/list', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try {
-        const accounts = await accountController.getAccountById(req, res, next);
-        res.json(response.success(accounts));
+        const users = await userController.getUserbyId(req, res, next);
+        res.json(response.success(users));
     } catch (error) {
         res.json(response.error(error.code, error.msg));
     }
 });
 router.post('/', async (req, res, next) => {
     try {
-        const accounts = await accountController.createAccount(req, res, next);
-        res.json(response.success(accounts));
+        const users = await userController.createUser(req, res, next);
+        res.json(response.success(users));
     } catch (error) {
         res.json(response.error(error.code, error.msg));
     }
 });
-// router.put('/:id', updateAccount)
-// router.delete('/:id', deleteAccount)
+// router.put('/:id', updateUser)
+// router.delete('/:id', deleteUser)
 
 module.exports = router;

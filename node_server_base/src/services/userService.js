@@ -3,7 +3,7 @@ const { resolve } = require("path");
 const db = require("../models");
 const { User } = require("../models")
 
-async function getAllAccount() {
+const getAllUser = async () => {
   console.log("get all account");
   try {
     const users = await User.findAll();
@@ -14,7 +14,7 @@ async function getAllAccount() {
   }
 };
 
-async function getAccountById(id) {
+const getUserbyId = async (id) => {
   console.log("get account by Id");
   try {
     const userId = await User.findOne({
@@ -30,9 +30,8 @@ async function getAccountById(id) {
 
 };
 
-
 module.exports = {
-  getAllAccount,
-  getAccountById,
- // createAccount,
+  getAllUser,
+  getUserbyId,
+
 };
