@@ -30,6 +30,7 @@ const getUserbyId = async (id) => {
 
 };
 
+
 module.exports = {
   getAllUser,
   getUserbyId,

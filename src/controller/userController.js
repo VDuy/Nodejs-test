@@ -1,4 +1,4 @@
-const { Account } = require('../models');
+const { User } = require('../models');
 const accountService = require('../services/userService');
 const { apiCode } = require('../utils/constant');
 
