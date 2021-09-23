@@ -2,10 +2,10 @@ const { User } = require('../models');
 const accountService = require('../services/userService');
 const { apiCode } = require('../utils/constant');
 
-async function homepage(req, res) {
-    return res.render('index.ejs')
+// async function homepage(req, res) {
+//     return res.render('index.ejs')
 
-}
+// }
 
 async function getAllUser(req, res) {
     try {
@@ -38,7 +38,7 @@ async function createUser(req, res) {
 
 
 module.exports = {
-    homepage: homepage,
+  //  homepage: homepage,
     getAllUser,
     getUserbyId,
     createUser,

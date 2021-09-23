@@ -1,8 +1,8 @@
 {
-  "name": "node_server_base",
+  "name": "windsserver",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sync": "node ./src/config/sync.js",
@@ -15,6 +15,7 @@
     "@types/nodemon": "^1.19.1",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
@@ -23,9 +24,10 @@
     "fs": "^0.0.1-security",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "mysql2": "^2.2.5",
+    "mysql2": "^2.3.0",
     "path": "^0.12.7",
     "sequelize": "^6.6.5",
+    "webpack-dev-server": "^4.2.1",
     "xlsx": "^0.17.1"
   },
   "devDependencies": {
