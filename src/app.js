@@ -1,7 +1,6 @@
 const { dotenv } = require('dotenv').config();
 
 const express = require('express');
-const app = express();
 
 const path = require('path');
 const cors = require("cors");
@@ -9,35 +8,43 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const db = require('./models');
 
-
+//const viewEngine = require("./config/viewEngine");
 const response = require('./common/response');
+
+//const webRoute = require("./routes/webRouter");
 const usersRouter = require('./routes/userRoutes');
+//viewEngine(app);
+//webRoute(app);
 
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(cors());
 app.use(cookieParser());
 
-//app.use('/', indexRouter);
+
+
+//app.use('/', webRoute);
 app.use('/user', usersRouter);
 
 
 
 
-// // error handler
-// app.use(function (err, req, res, next) {
-//   // // render the error page
-//   res.status(err.status || 500);
-//   res.json(response.error({
-//     code: 404,
-//     message: 'API not found'
-//   }))
-//   console.log(message);
+// error handler
+app.use(function (err, req, res, next) {
+  // // render the error page
+  res.status(err.status || 500);
+  res.json(response.error({
+    code: 404,
+    message: 'API not found'
+  }))
+  console.log(message);
 
-//   // // res.render('error');
-// });
+  // // res.render('error');
+});
 
 
 
@@ -45,7 +52,7 @@ app.use('/user', usersRouter);
 const PORT = process.env.PORT;
 app.listen(PORT, (err) => {
   if (err) {
-    console.log(`error`+ err);
+    console.log(`error` + err);
   } else {
     console.log(`API is running at port : ${PORT}`);
   }

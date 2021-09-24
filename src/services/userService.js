@@ -10,7 +10,7 @@ const getAllUser = async () => {
     return users;
   } catch (error) {
     console.log(error);
-    return error; 
+    return error;
   }
 };
 
@@ -29,10 +29,13 @@ const getUserbyId = async (id) => {
   }
 
 };
-
+const createUser = async (id) => { 
+  
+}
 
 module.exports = {
   getAllUser,
   getUserbyId,
+  createUser,
 
 };
