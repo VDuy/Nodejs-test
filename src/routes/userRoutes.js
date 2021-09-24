@@ -23,6 +23,7 @@ router.get('/:id', async (req, res, next) => {
         res.json(response.error(error.code, error.msg));
     }
 });
+
 router.post('/', async (req, res, next) => {
     try {
         const users = await userController.createUser(req, res, next);

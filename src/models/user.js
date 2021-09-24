@@ -1,7 +1,7 @@
 'use strict'
-const {Model, Sequelize, DataTypes} = require("sequelize");
-
-var sequelize = require(__dirname + "/../config/env.js");
+const { Sequelize } = require("sequelize");
+const { Model } = Sequelize;
+const sequelize = require(`${__dirname}/../config/env.js`);
 class user extends Model { }
 user.init(
   {
@@ -48,6 +48,9 @@ user.init(
     timestamps: false,
   }
 );
+
+user.associate = (db) => {
+};
 
 module.exports = () => user;
 

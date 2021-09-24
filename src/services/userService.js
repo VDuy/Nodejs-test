@@ -7,12 +7,10 @@ const getAllUser = async () => {
   console.log("get all users");
   try {
     const users = await User.findAll();
-    onsole.log(users.every(user => user instanceof User)); // true
-    console.log("All users:", JSON.stringify(getAllUser, null, 2));
     return users;
   } catch (error) {
     console.log(error);
-    return error;
+    return error; 
   }
 };
 
