@@ -53,4 +53,3 @@ user.associate = (db) => {
 };
 
 module.exports = () => user;
-
