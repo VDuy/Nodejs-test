@@ -1,9 +1,9 @@
 {
   "name": "winds-sequelize",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/VDuy/WindSoft-websserver.git",
-  "author": "Vũ Duy <ducduy23899@gmail.com>",
+  "author": "Vũ Duy",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.4",

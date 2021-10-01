@@ -8,10 +8,9 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const db = require('./models');
 
+const response = require('./common/response');
 
-//const response = require('./common/response');
-
-const usersRoute = require('./routes/userRoutes');
+const usersRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -21,8 +20,7 @@ app.use(cors());
 app.use(cookieParser());
 
 
-
-usersRoute(app);
+usersRoutes(app);
 
 
 
