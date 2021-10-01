@@ -10,7 +10,9 @@ const db = require('./models');
 
 const response = require('./common/response');
 
-const usersRoutes = require('./routes/userRoutes');
+//const usersRoutes = require('./routes/userRoutes');
+const viewEngine = require("./config/viewEngine");
+const webRoute = require("./routes/webRoutes");
 
 const app = express();
 
@@ -20,8 +22,9 @@ app.use(cors());
 app.use(cookieParser());
 
 
-usersRoutes(app);
-
+//usersRoutes(app);
+viewEngine(app);
+webRoute(app);
 
 
 const PORT = process.env.PORT;

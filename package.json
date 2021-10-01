@@ -1,5 +1,5 @@
 {
-  "name": "winds-sequelize",
+  "name": "js",
   "version": "1.0.0",
   "main": "app.js",
   "repository": "https://github.com/VDuy/Nodejs-test",
@@ -15,7 +15,11 @@
     "express": "^4.17.1",
     "mysql2": "^2.3.0",
     "nodemon": "^2.0.13",
-    "sequelize": "^6.6.5"
+    "pdf-creator-node": "^2.2.4",
+    "rotating-file-stream": "^2.1.5",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0",
+    "xlsx": "^0.17.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
