@@ -9,9 +9,8 @@ const cookieParser = require('cookie-parser');
 const db = require('./models');
 
 const response = require('./common/response');
-const viewEngine = require("./config/viewEngine");
-const initRoutes = require('./routes/indexRoutes');
-const initusersRoutes = require('./routes/userRoutes');
+
+const usersRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -20,9 +19,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use(cookieParser());
 
-viewEngine(app);
-initRoutes(app);
-initusersRoutes(app);
+
+usersRoutes(app);
 
 
 

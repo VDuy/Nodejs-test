@@ -5,6 +5,7 @@ const response = require('../common/response');
 const router = express.Router();
 
 
+let userRoutes = (app) => {
 router.get('/', async (req, res, next) => {
     try {
         const users = await userController.getAllUser(req, res, next);
@@ -34,5 +35,5 @@ router.post('/', async (req, res, next) => {
 });
 // router.put('/:id', updateUser)
 // router.delete('/:id', deleteUser)
-
-module.exports = router;
+}
+module.exports = userRoutes;
