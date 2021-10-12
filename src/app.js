@@ -1,39 +1,79 @@
+'use strict';
 const { dotenv } = require('dotenv').config();
-
 const express = require('express');
+const app = express();
 
 const path = require('path');
 const cors = require("cors");
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const db = require('./models');
+// const bodyParser = require('body-parser');
 
-const response = require('./common/response');
+// //const db = require('./models');
 
-//const usersRoutes = require('./routes/userRoutes');
+// //const response = require('./common/response');
+
+
+// const app = express();
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(cors());
+// app.use(cookieParser());
+
+
+
+
+// const PORT = process.env.PORT ;
+// app.listen(PORT, (err) => {
+//   if (err) {
+//     console.log(`error` + err);
+//   } else {
+//     console.log(`API is running at port : ${PORT}`);
+//   }
+// })
+
+// module.exports = app;
+
+
+
+const mongoose = require('mongoose');
+const User = require('./models/user');
+const bodyParser = require('body-parser');
+const jsonwebtoken = require("jsonwebtoken");
+
+mongoose.Promise = global.Promise;
+mongoose.connect(
+  process.env.DB_CONNECT,
+  () => console.log('Connected to DB')
+);
+
+//const userRoutes = require('./routes/userRoutes');
 const viewEngine = require("./config/viewEngine");
 const webRoute = require("./routes/webRoutes");
 
-const app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
-app.use(cookieParser());
-
-
-//usersRoutes(app);
+//userRoutes(app);
 viewEngine(app);
 webRoute(app);
 
-
-const PORT = process.env.PORT;
-app.listen(PORT, (err) => {
-  if (err) {
-    console.log(`error` + err);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(function (req, res, next) {
+  if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+    jsonwebtoken.verify(req.headers.authorization.split(' ')[1], 'RESTFULAPIs', function (err, decode) {
+      if (err) req.user = undefined;
+      req.user = decode;
+      next();
+    });
   } else {
-    console.log(`API is running at port : ${PORT}`);
+    req.user = undefined;
+    next();
   }
-})
+});
 
+
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
+console.log('API server started on: ' + PORT);
 module.exports = app;

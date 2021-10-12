@@ -3,14 +3,14 @@ const express = require("express");
 
 const indexController = require('../controller/indexController');
 // const response = require('../common/response');
-let router = express.Router();
+const router = express.Router();
 
-let initRoutes = (app) => {
-    router.get("/",
+const initRoutes = (app) => {
+    router.get("/homepage",
         indexController.homepage);
 
 
-    return app.use("/", router);
+    return app.use("/api/v1", router);
 
 }
 
