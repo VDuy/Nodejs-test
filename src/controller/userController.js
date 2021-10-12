@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = mongoose.model('User');
 
-exports.register = function(req, res) {
+exports.signup = function(req, res) {
     var newUser = new User(req.body);
     newUser.hash_password = bcrypt.hashSync(req.body.password, 10);
     newUser.save(function(err, user) {
@@ -20,7 +20,7 @@ exports.register = function(req, res) {
     });
   };
 
-  exports.sign_in = function(req, res) {
+  exports.signin = function(req, res) {
     User.findOne({
       email: req.body.email
     }, function(err, user) {
@@ -37,7 +37,7 @@ exports.register = function(req, res) {
     });
   };
 
-  exports.loginRequired = function(req, res, next) {
+  exports.signinRequired = function(req, res, next) {
     if (req.user) {
       next();
     } else {
