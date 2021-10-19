@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All User</title>
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<body>
+
+    <table>
+        <tr>
+            <th>UserName</th>
+            <th>FullName</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+        <% for(var i=0; i < dataTable.length; i++) { %>
+            <tr>
+                <td>
+                    <%= dataTable[i].username %>
+                </td>
+                <td>
+                    <%= dataTable[i].fullname %>
+                </td>
+                <td>
+                    <%= dataTable[i].phone %>
+                </td>
+                <td>
+                    <%= dataTable[i].email %>
+                </td>
+                <td>
+                    <a href="/user/edit?id=<%=dataTable[i].id %>" class="btn-edit" type="button">Edit </a>
+                </td>
+                <td>
+                    <a href="/api/v1/delete?id=<%=dataTable[i].id %>" class="btn-delete" type="button">Delete </a>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+
+</body>
+
+</html>

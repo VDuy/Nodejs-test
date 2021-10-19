@@ -14,8 +14,6 @@ const cookieParser = require('cookie-parser');
 // //const response = require('./common/response');
 
 
-// const app = express();
-
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended: true}));
 // app.use(cors());
@@ -24,16 +22,6 @@ const cookieParser = require('cookie-parser');
 
 
 
-// const PORT = process.env.PORT ;
-// app.listen(PORT, (err) => {
-//   if (err) {
-//     console.log(`error` + err);
-//   } else {
-//     console.log(`API is running at port : ${PORT}`);
-//   }
-// })
-
-// module.exports = app;
 
 
 
@@ -48,9 +36,9 @@ const jsonwebtoken = require("jsonwebtoken");
 //   () => console.log('Connected to DB')
 // );
 
-//const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/userRoutes');
 const viewEngine = require("./config/viewEngine");
-const webRoute = require("./routes/webRoutes");
+const webRoute = require("./routes/indexRoutes");
 
 //userRoutes(app);
 viewEngine(app);
