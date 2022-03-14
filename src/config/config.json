@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "0983947663",
+    "database": "testwindsoft",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+
+  "test": {
+    "username": "user_dvb",
+    "password": "8MyCcmftJQ7B3kqA",
+    "database": "crawler",
+    "host": "13.214.61.202",
+    "dialect": "mysql"
+  },
+  
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

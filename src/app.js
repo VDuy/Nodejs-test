@@ -7,17 +7,15 @@ const app = express();
 const path = require('path');
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
-// //const db = require('./models');
+const db = require('./models');
 
-// //const response = require('./common/response');
+const response = require('./common/response');
 
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended: true}));
-// app.use(cors());
-// app.use(cookieParser());
 
 
 
@@ -25,9 +23,9 @@ const cookieParser = require('cookie-parser');
 
 
 
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const User = require('./models/user');
-const bodyParser = require('body-parser');
+
 const jsonwebtoken = require("jsonwebtoken");
 
 // mongoose.Promise = global.Promise;
